@@ -56,12 +56,12 @@ const Footer = () => {
     <h3 className="text-4xl text-[#331a15] text-shadow-sm text-shadow-slate-500  mb-5">
           Connect with Us
         </h3>
-    <form className="space-y-3">
+    <form className="space-y-3 font-raleway">
 
         <input type="text" placeholder="Name" className="input border-none w-full" />
         <input type="text" placeholder="Email" className="input border-none w-full" />
         <textarea className="textarea border-none w-full" placeholder="Message "></textarea>
-        <button className="btn border-2 border-[#331a15] hover:bg-[#e3b577]  text-xl rounded-3xl mt-4">Send Message</button>
+        <button className="btn border-2 border-[#331a15] hover:bg-[#e3b577]  text-xl rounded-3xl mt-4 font-rancho">Send Message</button>
     </form>
 </div>
 </div>

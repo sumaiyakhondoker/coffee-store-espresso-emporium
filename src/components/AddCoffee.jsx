@@ -40,7 +40,7 @@ const AddCoffee = () => {
   return (
     <div className="bg-[url(/more/11.png)]">
         <div className="max-w-7xl mx-auto my-6">
-            <Link to='/' className="text-2xl flex items-center "><FiArrowLeft className='mr-3 text-xl'></FiArrowLeft> <span className='text-shadow-lg text-shadow-slate-400'> Back to home</span></Link>
+            <Link to='/'><button className='btn text-xl text-shadow-lg text-shadow-slate-400 bg-transparent hover:bg-[#d2b48c]'><FiArrowLeft className='mr-2'></FiArrowLeft>Back to home</button></Link>
         </div>
         <div className="max-w-7xl mx-auto bg-[#f4f3f0] p-24">
     

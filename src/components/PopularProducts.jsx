@@ -17,7 +17,7 @@ const PopularProducts = () => {
         <h2 className="text-5xl text-[#331a15] text-shadow-sm text-shadow-slate-500 mt-2 mb-3">
           Our Popular Products
         </h2>
-        <Link to='/addCoffee'><button className="btn bg-[#e3b577] text-white text-xl border-2 border-[#331a15]  mt-4 px-6">
+        <Link to='/addCoffee'><button className="btn bg-[#e3b577] hover:bg-transparent  text-white hover:text-[#331a15] text-xl border-2 border-[#331a15]  mt-4 px-6">
           Add Coffee <BsCup className="text-[#331a15]"></BsCup>
         </button></Link>
         
