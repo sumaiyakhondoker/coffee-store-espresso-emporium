@@ -3,6 +3,7 @@ import { BsCup } from "react-icons/bs";
 import { IoEyeSharp } from "react-icons/io5";
 import { BiSolidPencil } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 // bg-[url(/more/4.png),_url(/more/5.png)]  bg-left,_bg-right  bg-no-repeat
@@ -16,17 +17,18 @@ const PopularProducts = () => {
         <h2 className="text-5xl text-[#331a15] text-shadow-sm text-shadow-slate-500 mt-2 mb-3">
           Our Popular Products
         </h2>
-        <button className="btn bg-[#e3b577] text-white text-xl border border-[#331a15]  mt-4 px-6">
+        <Link to='/addCoffee'><button className="btn bg-[#e3b577] text-white text-xl border-2 border-[#331a15]  mt-4 px-6">
           Add Coffee <BsCup className="text-[#331a15]"></BsCup>
-        </button>
+        </button></Link>
+        
       </div>
 
       {/* img */}
-      <img src="/more/4.png" alt="" className="absolute left-0"/>
-      <img src="/more/5.png" alt="" className="absolute right-0"/>
+      <img src="/more/4.png"  alt="" className="absolute left-0 "/>
+      <img src="/more/5.png" alt="" className="absolute right-0 opacity-20"/>
 
       {/* cards  container*/}
-      <div className=" font-raleway max-w-7xl mx-auto flex flex-col md:flex-row justify-between  gap-5 mt-10">
+      <div className=" font-raleway max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-5 mt-10">
         {/* card 1  */}
         <div className="card lg:flex-row justify-between bg-[#f5f4f1]/40 shadow-sm w-full md:w-1/2 p-7 items-center">
           <div className="flex gap-4 justify-center items-center">
@@ -49,9 +51,10 @@ const PopularProducts = () => {
             <button className="btn btn-square bg-[#d2b48c] text-white">
               <IoEyeSharp className="text-xl"></IoEyeSharp>
             </button>
-            <button className="btn btn-square bg-[#3c393b] text-white">
+            
+            <Link to='/updateCoffee'><button className="btn btn-square bg-[#3c393b] text-white">
               <BiSolidPencil className="text-xl"></BiSolidPencil>
-            </button>
+            </button></Link>
             <button className="btn btn-square bg-[#ea4744] text-white">
               <MdDelete className="text-xl"></MdDelete>
             </button>
