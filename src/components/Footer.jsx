@@ -3,7 +3,7 @@ import { MdLocationOn } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="bg-[url(/more/13.jpg)] text-black  ">
+    <footer className="bg-[url(/more/13.jpg)] text-black">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-3 md:justify-between p-10">
         <div className="">
             {/* logo */}
@@ -53,7 +53,7 @@ const Footer = () => {
 {/* form */}
 <div className="max-w-lg flex justify-center items-center">
 <div >
-    <h3 className="text-4xl text-[#331a15] text-shadow-sm text-shadow-slate-500  mb-5">
+    <h3 className="text-4xl text-[#331a15] text-shadow-sm text-shadow-slate-500 mb-5">
           Connect with Us
         </h3>
     <form className="space-y-3 font-raleway">

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Banner = () => {
+    const {user} = useContext(AuthContext)
+   
     return (
         <div>
             <div className='bg-[url(/more/3.png)] h-[800px] '>
@@ -8,7 +13,10 @@ const Banner = () => {
                 <div className='max-w-2xl text-white px-5 lg:px-0'>
                 <h2 className="text-5xl mb-0">Would you like a Cup of Delicious Coffee?</h2>
                 <p className='mt-4 mb-8 font-raleway'>It's coffee time - Sip & Savor - Relaxation in every sip! Get the nostalgia back!! Your companion of every moment!!! Enjoy the beautiful moments and make them memorable.</p>
-                <button className="btn bg-[#e3b577]  hover:bg-transparent text-[#242222] text-xl hover:text-white border-[#242222] hover:border-white mt-0 px-6">Learn More</button>
+                <div className='flex gap-3'>
+                    <button className="btn bg-[#e3b577]  hover:bg-transparent text-[#242222] text-xl hover:text-white border-[#242222] hover:border-white mt-0 px-6">Learn More</button>
+                    <Link to={user ? '/signout' : '/login'}><button className="btn bg-transparent text-white hover:bg-[#e3b577]  hover:text-[#242222] text-xl  hover:border-[#242222] border-white mt-0 px-6">{user ? 'Sign Out' : 'Sign In'}</button></Link>
+                </div>
             </div>
             </div>
         </div>

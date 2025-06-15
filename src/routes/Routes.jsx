@@ -8,28 +8,43 @@ import AddCoffee from "../components/AddCoffee";
 import UpdateCoffee from "../components/UpdateCoffee";
 import Register from "../components/Register";
 import Login from "../components/Login";
+import PrivateRoute from "./PrivateRoute";
+import CoffeeDetails from "../components/CoffeeDetails";
+import SignOut from "../components/SignOut";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
+    loader: ()=> fetch('http://localhost:5000/coffees'),
     children: [
       {
         path:'/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        
+      },
+      {
+        path:'/coffeeDetails/:id',
+        element: <PrivateRoute><CoffeeDetails></CoffeeDetails></PrivateRoute>,
+        loader: ({params})=> fetch(`http://localhost:5000/coffees/${params.id}`)
       },
       {
         path:'/addCoffee',
-        element: <AddCoffee></AddCoffee>
+        element: <PrivateRoute><AddCoffee></AddCoffee></PrivateRoute>
       },
       {
-        path:'/updateCoffee',
-        element: <UpdateCoffee></UpdateCoffee>
+        path:'/updateCoffee/:id',
+        element: <PrivateRoute><UpdateCoffee></UpdateCoffee></PrivateRoute>,
+        loader: ({params})=> fetch(`http://localhost:5000/coffees/${params.id}`)
       },
       {
         path:'/login',
         element: <Login></Login>
+      },
+      {
+        path:'/signout',
+        element: <SignOut></SignOut>
       },
       {
         path:'/register',

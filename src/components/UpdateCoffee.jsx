@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FiArrowLeft } from "react-icons/fi";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -30,16 +30,64 @@ const UpdateCoffee = () => {
   //       .then((res) => res.json())
   //       .then((data) => {
   //         console.log(data);
-  //         if (data.modifiedCount > 0) {
-  //           Swal.fire({
-  //             title: "Success!",
-  //             text: "Updated the coffee successfully",
-  //             icon: "success",
-  //             confirmButtonText: "Ok",
-  //           });
-  //         }
+          // if (data.modifiedCount > 0) {
+          //   Swal.fire({
+          //     title: "Success!",
+          //     text: "Updated the coffee successfully",
+          //     icon: "success",
+          //     confirmButtonText: "Ok",
+          //   });
+          // }
   //       });
   //   };
+// const loadedCoffee = useLoaderData()
+// console.log(loadedCoffee);
+
+  const loadedCoffee = useLoaderData()
+  const  {_id, name, chef, supplier, taste, category, details, photo,price } = loadedCoffee ;
+
+const handleUpdateCoffee = (e) =>{ 
+  e.preventDefault()
+  const form = e.target;
+
+    const name = form.name.value;
+    const chef = form.chef.value;
+    const supplier = form.supplier.value;
+    const taste = form.taste.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
+    const price = form.price.value;
+    const updatedCoffee = { name, chef, supplier, taste, category, details, photo , price};
+    console.log(updatedCoffee);
+
+     fetch(`http://localhost:5000/coffees/${_id}`, {
+      method: 'PUT',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(updatedCoffee)
+     })
+     .then(res => res.json())
+     .then(data => {
+      console.log(data);
+      if (data.modifiedCount > 0) {
+            Swal.fire({
+              title: "Success!",
+              text: "Updated the coffee successfully",
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+          }
+     })
+
+
+
+}
+
+
+
+
   return (
 <div className="bg-[url(/more/11.png)]">
     <div className="max-w-7xl mx-auto my-6">
@@ -49,8 +97,8 @@ const UpdateCoffee = () => {
       <h3 className="text-4xl font-extrabold text-center mb-8">
         Update Existing Coffee Details
       </h3>
-      {/* <form onSubmit={handleUpdateCoffee}> */}
-      <form action="">
+      
+      <form onSubmit={handleUpdateCoffee}>
         {/* form row 1 */}
         <div className="flex mb-8 font-raleway">
           <div className="md:w-1/2">
@@ -58,9 +106,10 @@ const UpdateCoffee = () => {
             <input
               type="text"
               name="name"
-              // defaultValue={name}
+              defaultValue={name}
               placeholder="Enter coffee name"
               className="input w-full"
+              
             />
           </div>
           <div className="md:w-1/2 ml-8">
@@ -68,9 +117,10 @@ const UpdateCoffee = () => {
             <input
               type="text"
               name="chef"
-              // defaultValue={chef}
+              defaultValue={chef}
               placeholder="Enter chef name"
               className="input w-full "
+             
             />
           </div>
         </div>
@@ -81,9 +131,10 @@ const UpdateCoffee = () => {
             <input
               type="text"
               name="supplier"
-              // defaultValue={supplier}
+              defaultValue={supplier}
               placeholder="Enter coffee supplier"
               className="input w-full"
+             
             />
           </div>
           <div className="md:w-1/2 ml-8">
@@ -91,9 +142,10 @@ const UpdateCoffee = () => {
             <input
               type="text"
               name="taste"
-              // defaultValue={taste}
+              defaultValue={taste}
               placeholder="Enter coffee taste "
               className="input w-full "
+              
             />
           </div>
         </div>
@@ -104,9 +156,10 @@ const UpdateCoffee = () => {
             <input
               type="text"
               name="category"
-              // defaultValue={category}
+              defaultValue={category}
               placeholder="Enter coffee category"
               className="input w-full"
+              
             />
           </div>
           <div className="md:w-1/2 ml-8">
@@ -114,23 +167,39 @@ const UpdateCoffee = () => {
             <input
               type="text"
               name="details"
-              // defaultValue={details}
+              defaultValue={details}
               placeholder="Enter coffee details"
               className="input w-full "
+               
             />
           </div>
         </div>
-        {/* form row 4 */}
+       
 
-        <div className="mb-8 font-raleway">
-          <label>Photo URL</label>
-          <input
-            type="text"
-            name="photo"
-            // defaultValue={photo}
-            placeholder="Enter photo URL"
-            className="input w-full"
-          />
+        {/* form row 4 */}
+        <div className="flex mb-8 font-raleway">
+          <div className="md:w-1/2">
+            <label>Photo URL</label>
+            <input
+              type="text"
+              name="photo"
+              defaultValue={photo}
+              placeholder="Enter photo URL"
+              className="input w-full"
+               
+            />
+          </div>
+          <div className="md:w-1/2 ml-8">
+            <label>Price</label>
+            <input
+              type="number"
+              name="price"
+              defaultValue={price}
+              placeholder="Enter price"
+              className="input w-full "
+              
+            />
+          </div>
         </div>
 
         <input

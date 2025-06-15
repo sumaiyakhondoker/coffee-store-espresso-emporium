@@ -14,18 +14,19 @@ const AddCoffee = () => {
     const category = form.category.value;
     const details = form.details.value;
     const photo = form.photo.value;
-    const newCoffee = { name, chef, supplier, taste, category, details, photo };
+    const price = form.price.value;
+    const newCoffee = { name, chef, supplier, taste, category, details, photo, price };
     console.log(newCoffee);
-
-    fetch("https://coffee-store-server-b2dgkg63v-sumaiyas-projects-8e919dd3.vercel.app/coffee", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
+    
+    fetch('http://localhost:5000/coffees', {
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
       },
-      body: JSON.stringify(newCoffee),
+      body: JSON.stringify(newCoffee)
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data =>{
         console.log(data);
         if (data.insertedId) {
           Swal.fire({
@@ -35,7 +36,9 @@ const AddCoffee = () => {
             confirmButtonText: "Ok",
           });
         }
-      });
+      })
+
+   
   };
   return (
     <div className="bg-[url(/more/11.png)]">
@@ -111,16 +114,32 @@ const AddCoffee = () => {
             />
           </div>
         </div>
-        {/* form row 4 */}
+      
 
-        <div className="mb-8 font-raleway">
-          <label>Photo URL</label>
-          <input
-            type="text"
-            name="photo"
-            placeholder="Enter photo URL"
-            className="input w-full"
-          />
+        {/* form row 4 */}
+        <div className="flex mb-8 font-raleway">
+          <div className="md:w-1/2">
+            <label>Photo URL</label>
+            <input
+              type="text"
+              name="photo"
+              // defaultValue={category}
+              placeholder="Enter photo URL"
+              className="input w-full"
+             
+            />
+          </div>
+          <div className="md:w-1/2 ml-8">
+            <label>Price</label>
+            <input
+              type="number"
+              name="price"
+              // defaultValue={details}
+              placeholder="Enter price"
+              className="input w-full "
+              
+            />
+          </div>
         </div>
 
         <input

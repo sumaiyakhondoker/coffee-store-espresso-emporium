@@ -8,8 +8,8 @@ import Register from './Register';
 const Home = () => {
     return (
         <div>
-            {/* <Login></Login> */}
-            {/* <Register></Register> */}
+            {/* <Login></Login>
+            <Register></Register> */}
             <Banner></Banner>
             <PopularProducts></PopularProducts>
             <CoffeeCards></CoffeeCards>
