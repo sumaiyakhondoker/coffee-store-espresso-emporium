@@ -61,7 +61,7 @@ const handleUpdateCoffee = (e) =>{
     const updatedCoffee = { name, chef, supplier, taste, category, details, photo , price};
     console.log(updatedCoffee);
 
-     fetch(`http://localhost:5000/coffees/${_id}`, {
+     fetch(`https://coffee-store-espresso-emporium-serv.vercel.app/coffees/${_id}`, {
       method: 'PUT',
       headers:{
         'content-type': 'application/json'

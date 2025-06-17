@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "espresso-emporium-560b0",
   storageBucket: "espresso-emporium-560b0.firebasestorage.app",
   messagingSenderId: "162097510460",
-  appId: "1:162097510460:web:921b8b9ee9c2b92d86eb39"
+  appId: "1:162097510460:web:921b8b9ee9c2b92d86eb39",
 };
 
 // Initialize Firebase

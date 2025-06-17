@@ -21,7 +21,7 @@ const Coffee = ({ coffee }) => {
     e.preventDefault();
     // console.log("delete", _id);
      
-    fetch(`http://localhost:5000/coffees/${_id}`, {
+    fetch(`https://coffee-store-espresso-emporium-serv.vercel.app/coffees/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

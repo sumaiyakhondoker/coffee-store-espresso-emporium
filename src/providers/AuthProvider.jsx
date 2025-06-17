@@ -20,7 +20,7 @@ const githubProvider = new GithubAuthProvider();
     const [coffees, setCoffees] = useState(null)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/coffees')
+        fetch('https://coffee-store-espresso-emporium-serv.vercel.app/coffees')
         .then(res => res.json())
         .then(loadedCoffees =>{
             // console.log(coffees);
