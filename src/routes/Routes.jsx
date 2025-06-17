@@ -17,11 +17,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
-    loader: ()=> fetch('https://coffee-store-espresso-emporium-serv.vercel.app/coffees'),
+    
     children: [
       {
         path:'/',
         element: <Home></Home>,
+        loader: ()=> fetch('https://coffee-store-espresso-emporium-serv.vercel.app/coffees'),
         
       },
       {

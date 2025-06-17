@@ -17,7 +17,7 @@ const AuthProvider = ({children}) => {
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
-    const [coffees, setCoffees] = useState(null)
+    const [coffees, setCoffees] = useState()
 
     useEffect(()=>{
         fetch('https://coffee-store-espresso-emporium-serv.vercel.app/coffees')
